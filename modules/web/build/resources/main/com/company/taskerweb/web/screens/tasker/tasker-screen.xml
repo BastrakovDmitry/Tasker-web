@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://caption"
+        messagesPack="com.company.taskerweb.web.screens.tasker">
+    <data>
+        <instance id="someDataDc" class="com.company.taskerweb.entity.SomeData" view="_local">
+            <loader>
+                <query>
+                    <![CDATA[select e from taskerweb_SomeData e]]>
+                </query>
+            </loader>
+        </instance>
+    </data>
+    <actions>
+        <action id="calc" caption="msg://calc"/>
+        <action id="save" caption="msg://save"/>
+    </actions>
+    <layout spacing="true" height="200" width="400px">
+        <groupBox spacing="true">
+            <lookupField id="combobox" description="msg://combobox"
+                         caption="msg://combobox" width="100%"
+                         nullOptionVisible="false" dataContainer="someDataDc" property="task"/>
+            <textArea id="data" caption="msg://data" width="100%" datatype="string"/>
+            <textArea id="answerArea" caption="msg://answer" width="100%"
+                      datatype="string" editable="false"/>
+            <buttonsPanel>
+                <button id="calc" action="calc"/>
+                <button id="save" action="save"/>
+                <upload id="upload" uploadButtonCaption="msg://Upload"/>
+            </buttonsPanel>
+        </groupBox>
+    </layout>
+</window>
